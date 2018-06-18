@@ -1,0 +1,8 @@
+<h1>Index!</h1>
+{{#each story }}
+  <div>
+    <h3>{{ this.title }}</h3>
+    <p> {{ this.summary}} </p>
+    <a href={{this.link}}>{{this.link}}</a>
+  </div>
+{{/each}}

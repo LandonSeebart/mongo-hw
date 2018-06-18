@@ -6,16 +6,20 @@ const StorySchema = new Schema({
   title: {
     type: String,
     trim: true,
-    required: "String is Required"
+    required: true
   },
-  string: {
+  link: {
     type: String,
     trim: true,
-    required: "String is Required"
+    required: true
   },
-  string: {
+  summary: {
     type: String,
     trim: true,
-    required: "String is Required"
+    required: true
   },
 })
+
+const Story = mongoose.model('Story', StorySchema);
+
+module.exports = Story;

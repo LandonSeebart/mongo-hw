@@ -13,16 +13,16 @@ function fetchStories() {
       $('article.story').each(function(i, article) {
         const storyHeadingNode = $(article).children('.story-heading')
 
-        const href = storyHeadingNode.children('a').attr('href');
-        if (!href) return
+        const link = storyHeadingNode.children('a').attr('href');
+        if (!link) return
 
         const title = storyHeadingNode.text().trim()
         const summary = $(article).children('.summary').text().trim()
         if (!summary) return
 
         results.push({
-          href,
           title,
+          link,
           summary
         })
       });
