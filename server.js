@@ -13,7 +13,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // Database configuration
 const Story = require('./models/Story');
-mongoose.connect('mongodb://localhost/scraper');
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 // Handlebars stuff
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
