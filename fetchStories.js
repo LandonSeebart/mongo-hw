@@ -1,10 +1,10 @@
 //Dependencies
-var cheerio = require("cheerio");
-var request = require("request");
+var cheerio = require('cheerio');
+var request = require('request');
 
 function fetchStories() {
   return new Promise(resolve => {
-    request("http://www.nytimes.com", function(error, response, html) {
+    request('http://www.nytimes.com', function(error, response, html) {
 
       const $ = cheerio.load(html);
 
@@ -13,13 +13,14 @@ function fetchStories() {
       $('article.story').each(function(i, article) {
         const storyHeadingNode = $(article).children('.story-heading')
 
+        const summary = $(article).children('.summary').text().trim()
+        if (!summary) return
+
         const link = storyHeadingNode.children('a').attr('href');
         if (!link) return
 
         const title = storyHeadingNode.text().trim()
-        const summary = $(article).children('.summary').text().trim()
-        if (!summary) return
-
+        
         results.push({
           title,
           link,
@@ -30,7 +31,6 @@ function fetchStories() {
       resolve(results)
     })
   });
-
 }
 
 module.exports = fetchStories

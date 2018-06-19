@@ -1,0 +1,12 @@
+
+<form method='post' action='/articles/{{id}}'>
+  <textarea name='comment'></textarea>
+  <input type='submit' value='Add Comment' id='newComment' />
+</form>
+{{#each story.comments }}
+  <div>
+    <p>{{this}}</p>
+  </div>
+{{/each}}
+
+

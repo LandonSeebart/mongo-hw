@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -18,6 +18,7 @@ const StorySchema = new Schema({
     trim: true,
     required: true
   },
+  comments: [String]
 })
 
 const Story = mongoose.model('Story', StorySchema);

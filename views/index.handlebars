@@ -1,8 +1,7 @@
-<h1>Index!</h1>
-{{#each story }}
+{{#each stories }}
   <div>
-    <h3>{{ this.title }}</h3>
-    <p> {{ this.summary}} </p>
-    <a href={{this.link}}>{{this.link}}</a>
+    <a href={{this.link}}>{{this.title}}</a>
+    <p>{{ this.summary}}</p>
+    <button data-id='{{this._id}}' id="comment">Comments</button>
   </div>
 {{/each}}
